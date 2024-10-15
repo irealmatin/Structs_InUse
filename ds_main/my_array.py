@@ -59,19 +59,18 @@ class StaticArray:
 
     def __str__(self):
         """for make printable array"""
-        return "[" + ", ".join(str(self.array[i]) for i in range(self.current_len)) + "]"
+        return "[" + ", ".join(str(self.array[i]) for i in range(self.size)) + "]"
     
 
 if __name__ == '__main__' :
     obj = StaticArray(10)
     print(obj.is_empty())
     obj.insert(2 , 0)
-    print(obj)
     obj.insert(5,1)
-    print(obj)
     obj.insert(33,2)
     obj.insert(9,3)
     obj.insert(15 , 4)
     obj.delete(1)
-    print(obj)
-# ---------------------------------------------------------------------------------------------------- #
+    print(obj) #[2, 33, 9, 15, None, None, None, None, None, None]
+# ---------------------------------------------------------------------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------------------------------------------------------------- #
