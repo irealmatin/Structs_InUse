@@ -3,7 +3,7 @@
 #-----------------------------------------------code---------------------------------------------------#
 #------------------------------------------------------------------------------------------------------#
 
-class StaticArray:
+class StaticArray_V1:
     """a static array wich element should insert next to each other"""
     def __init__(self , size):
 
@@ -66,7 +66,7 @@ class StaticArray:
     
 
 if __name__ == '__main__' :
-    obj = StaticArray(10)
+    obj = StaticArray_V1(10)
     print(obj.is_empty())
     obj.insert(2 , 0)
     obj.insert(5,1)
@@ -77,3 +77,12 @@ if __name__ == '__main__' :
     print(obj) #[2, 33, 9, 15, None, None, None, None, None, None]
 # ---------------------------------------------------------------------------------------------------------------------------------- #
 # ---------------------------------------------------------------------------------------------------------------------------------- #
+
+class StaticArray_V2 :
+    """a static array wich element can insert in optional index(in StaticArray_V1 you should insert next to prev number ->[append])"""
+    def __init__(self , size):
+        self.size = size
+        self.array = []
+
+    def insert(self):
+        pass
