@@ -93,6 +93,8 @@ class StaticArray_V2(StaticArray_V1) :
         self.flag = [False] * size
 
     def insert(self, number, position):
+        """insert number in specified position"""
+
         if self.is_full():
             raise Exception("OPS. Array is full!")
         elif position < 0 or position >= self.size:
