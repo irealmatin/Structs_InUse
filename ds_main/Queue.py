@@ -1,3 +1,5 @@
+from Stack import Stack
+
 class Queue:
     def __init__(self, max_capacity):
         if max_capacity <= 0:
@@ -88,7 +90,7 @@ class CircularQueue:
             raise IndexError("Dequeue from an empty queue")
 
         value = self._data[self._front]
-        self._data[self._front] = None  # Optional: clear the dequeued spot
+        self._data[self._front] = None  
         self._front = (self._front + 1) % self._max_capacity
         self._size -= 1
         return value
@@ -107,15 +109,57 @@ class CircularQueue:
     def capacity(self):
         return self._max_capacity
     
+    def reverse_queue(self):
+        "belong to EXR3_1"
+        if self.is_empty():
+            return
+        stack = Stack(self._size)
+        
+        while not self.is_empty():
+            stack.push(self.dequeue())
+
+        while not stack.is_empty():
+            self.enqueue(stack.pop())
+
+    @staticmethod
+    def transfer_queue(q_main , q_target):
+        while not q_main.is_empty():
+            q_target.enqueue(q_main.dequeue())
+
+
+
+    
+
+
+
+
+
 
 if __name__ == "__main__":
     Q1 = CircularQueue(5)
     Q1.enqueue(3)
     Q1.enqueue(2)
-    Q1.enqueue(10)
     print(Q1) # [3, 2, 10]
     print(Q1.capacity)
     print(Q1.is_full()) # Flase
     Q1.dequeue()
     print(Q1) # [2, 10]
+    Q1.enqueue(8)
+    Q1.enqueue(10)
+    Q1.enqueue(21)
+    Q1.enqueue(11)
+    print(Q1)
+    Q1.reverse_queue()
+    print(Q1)
+
+    cq1 = CircularQueue(5)
+    cq2 = CircularQueue(5)
+    cq1.enqueue(1)
+    cq1.enqueue(2)
+    cq1.enqueue(3)
+
+    print("Source Queue:", cq1)
+    CircularQueue.transfer_queue(cq1, cq2)
+    print("Target Queue:", cq2)
+
 
