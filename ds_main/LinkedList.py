@@ -79,6 +79,27 @@ class LinkedList:
                 lst_unique.append(current.data)
                 prev = current
             current = current.next
+
+    def sort(self):
+        """
+        belong to Exr3_5 .
+        Worst-case Time Complexity: O(n^2)
+        Best-case Time Complexity: O(n)
+        """
+        if self.head is None or self.head.next is None:
+            return  # The list is already sorted
+
+        swapped = True
+        while swapped:
+            swapped = False
+            current = self.head
+
+            while current.next:
+                if current.data > current.next.data:
+                    # Swap the data
+                    current.data, current.next.data = current.next.data, current.data
+                    swapped = True
+                current = current.next
         
 
 if __name__ == "__main__":
@@ -96,7 +117,9 @@ if __name__ == "__main__":
     obj_ll.insert_at_head(2)
     print(obj_ll)
     obj_ll.remove_duplicate()
-    print(obj_ll)
+    print(f"befor sorting :" , obj_ll)
+    obj_ll.sort()
+    print(f"after sorting :" , obj_ll)
 
 
         
