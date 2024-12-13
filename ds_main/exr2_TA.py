@@ -1,6 +1,4 @@
-# Matin Mohammadi : 40011173069
 # Second series of data structure exercises
-# *Note : I used the class written in this link : https://github.com/STRstark/Ds-Classes-In-Python/blob/main/DataStructures-Py/Stack.py
 
 class Stack:
     __Data =[]
@@ -154,7 +152,7 @@ class Stack:
         while not temp_stack.IsEmpty():
             temp_list.append(temp_stack.Pop())
 
-        temp_list.reverse() # base on the question[....ميخواهيم به صورت نزولي ] , the biggest value should be in tail of stack[desending order]
+        temp_list.reverse() # base on the question[....ميخواهيم به صورت نزولي ] , the biggest value should be in tail of stack[desending order]!
 
         for item in temp_list:
             result_stack.Push(item)
@@ -194,7 +192,6 @@ if __name__ == "__main__":
         stack1.Push(item)
     for item in [2,4,6,18]:
         stack2.Push(item)
-
     merged_stack = Stack.merge_stacks(stack1, stack2)
     print("testing Merged stack:\n",merged_stack)
 
